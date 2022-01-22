@@ -49,7 +49,7 @@ public class NewsController {
     @ResponseStatus(value = HttpStatus.OK)
     public Response<List<News>> getNews(@RequestParam Map<String, String> parameters,
             final Pageable pageable) {
-        Page<News> pagedNews = newsService.getNews(parameters, pageable);
+        Page<News> pagedNews = newsService.getNewsWithoutContent(parameters, pageable);
 
         PageResponse pageResponse = PageResponse.builder()
                 .page(pagedNews.getNumber())
